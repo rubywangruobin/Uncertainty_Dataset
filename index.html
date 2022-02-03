@@ -379,7 +379,7 @@ path {
     
         // download("hello.txt", document.getElementById('myTable').innerHTML);
         var tableData = tableToJson(document.getElementById('myTable'));
-        console.log(tableData);
+        // console.log(tableData);
         // processFile(tableData);
     }
     
@@ -489,9 +489,9 @@ path {
                 .append("svg")
     
         var currentValTF = new Array(data.length).fill(0);
-        console.log(currentValTF);
+        // console.log(currentValTF);
         var currentVal = new Array(data.length). fill("");
-        console.log(currentVal);    
+        // console.log(currentVal);    
 
     // var currentValTF = [0, 0, 0, 0];
     // var currentVal = ["", "", "", ""];
@@ -501,7 +501,7 @@ path {
        .append("circle")
        .attr("cx", function(d) {return d[0]})
        .attr("cy", function(d) {return d[1]})
-       .attr("value", function(d){return d[2]})
+       .attr("value", function(d){return d3.pairs(d[2],d[3])})
        .style("fill", "black")
        .style("fill-opacity", 0)
        .style("stroke", "black")
@@ -537,7 +537,7 @@ path {
           if(document.getElementById("testId") != null){
             $('.testRemove').remove();
           }
-          console.log(jsonFile.length);
+        //   console.log(jsonFile.length);
           for(let i = 0; i < jsonFile.length; i++){
               createA(i);
           }
