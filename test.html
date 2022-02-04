@@ -64,23 +64,6 @@ path {
         <div class="svgOverlay"><svg style="width:${inputheight}; height:${inputheight};"></svg></div>
 </div>
 </div>
-<div style="margin-bottom: 20px;">
-    <h2 style="text-align:left;">Data Type</h2>
-    <select name="dataType" id="dataType">
-        <option value="none" selected disabled hidden>Select an Option</option>
-        <option value="value">Value</option>
-        <option value="proportion">Proportion</option>
-        <option value="difference">Difference</option>
-        <option value="distribution">Distribution</option>
-        <option value="trend">Trend</option>
-        <option value="rank">Rank</option>
-        <option value="aggregation">Aggregation</option>
-        <option value="association">Association</option>
-        <option value="extreme">Extreme</option>
-        <option value="categorization">Categorization</option>
-        <option value="outlier">Outlier</option>
-      </select>
-</div>
 <div style="text-align:center;"><button onclick="addRow()">Add Reference</button></div>
 <div>
     <h2 style="text-align:left;">Data Table</h2>
@@ -262,7 +245,6 @@ function addRow(){
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
 
 
     cell1.innerHTML = res;
@@ -274,19 +256,13 @@ function addRow(){
     }
     cell2.innerHTML = cell2Val;
 
-    //dropdown menu in cell3
-
-    var dataTypeObj = document.getElementById("dataType");
-    var dataTypeVal = dataTypeObj.value;
-    cell3.innerHTML = dataTypeVal;
-
-    //remove button cell4
+    //remove button cell3
     var btn = document.createElement("button");
     btn.innerHTML = "X";
     btn.onclick = function(){
         removeButton(row);
     };
-    cell4.appendChild(btn);
+    cell3.appendChild(btn);
     jsonFile = tableToJson(document.getElementById('myTable'));
     updateButton();
     svg.selectAll("circle")
@@ -433,7 +409,7 @@ svg.selectAll("circle")
           a.setAttribute('id', "testId");
           a.setAttribute('name', "graph"+index);
           a.setAttribute('hidden', true);
-          a.setAttribute('value', "[text:[" + jsonFile[index].text + "],dataPoint:[" + jsonFile[index].datapoint + "],dataType:[" + jsonFile[index].datatype + "]]"); 
+          a.setAttribute('value', "[text:[" + jsonFile[index].text + "],dataPoint:[" + jsonFile[index].datapoint + "]]"); 
           s.append(a);
       }
   
