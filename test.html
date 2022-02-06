@@ -67,18 +67,16 @@ path {
 <div style="text-align:center;"><button onclick="addRow()">Add Reference</button></div>
 <div>
     <h2 style="text-align:left;">Data Table</h2>
-    <h4 style="text-align:left; margin-bottom:20px;">For each row of the table, select a data type for each reference you added. If you want to remove an existing reference, click on the Cancel button on column 4.</h4>
+    <h4 style="text-align:left; margin-bottom:20px;"> If you want to remove an existing reference, click on the Cancel button on column 4.</h4>
     <table id="myTable" style="padding:30px 0;">
         <tr>
             <td>Text</td>
             <td>Data Point</td>
-            <td>Data Type</td>
             <td>Cancel</td>
         </tr>
         <colgroup>
-            <col span="1" style="width:50%;">
-            <col span="1" style="width:20%;">
-            <col span="1" style="width:20%;">
+            <col span="1" style="width:450%;">
+            <col span="1" style="width:45%;">
             <col span="1" style="width:10%;">
         </colgroup>
     </table>
@@ -235,10 +233,6 @@ function addRow(){
         alert("Please select a data point");
         return;
     }
-    if(document.getElementById("dataType").value == "none"){
-            alert("Please select a data type");
-            return;
-    }
     //create table
     var table = document.getElementById("myTable");
     var row = table.insertRow();
@@ -392,9 +386,8 @@ svg.selectAll("circle")
                 d3.select(this).style("fill", "black");
                 d3.select(this).style("fill-opacity", 0);
             }
-
-
   });
+  
   function updateButton(){
           if(document.getElementById("testId") != null){
             $('.testRemove').remove();
@@ -407,7 +400,7 @@ svg.selectAll("circle")
           var a = document.createElement('Input');
           a.setAttribute('class', "testRemove");
           a.setAttribute('id', "testId");
-          a.setAttribute('name', "graph"+index);
+          a.setAttribute('name', "Reference"+index);
           a.setAttribute('hidden', true);
           a.setAttribute('value', "[text:[" + jsonFile[index].text + "],dataPoint:[" + jsonFile[index].datapoint + "]]"); 
           s.append(a);
